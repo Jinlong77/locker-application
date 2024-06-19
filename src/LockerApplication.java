@@ -16,18 +16,22 @@ public class LockerApplication extends JFrame {
     private void createUI() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
+        setPreferredSize(new Dimension(400, 300)); // Set the preferred size of the main window
 
         // Password field
         passwordField = new JTextField();
         passwordField.setEditable(false);
+        passwordField.setPreferredSize(new Dimension(400, 50)); // Set the preferred size of the password field
         add(passwordField, BorderLayout.NORTH);
 
         // Status label
         statusLabel = new JLabel(" ");
+        statusLabel.setPreferredSize(new Dimension(400, 50)); // Set the preferred size of the status label
         add(statusLabel, BorderLayout.SOUTH);
 
         // Numeric keypad panel
         JPanel keypadPanel = new JPanel(new GridLayout(4, 3));
+        keypadPanel.setPreferredSize(new Dimension(300, 200)); // Set the preferred size of the keypad panel
         for (int i = 1; i <= 9; i++) {
             addButton(keypadPanel, String.valueOf(i));
         }
@@ -42,6 +46,7 @@ public class LockerApplication extends JFrame {
 
     private void addButton(JPanel parent, String text) {
         JButton button = new JButton(text);
+        button.setPreferredSize(new Dimension(100, 50)); // Set the preferred size of each button
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
